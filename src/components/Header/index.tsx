@@ -9,7 +9,8 @@ const Header = (props: HeaderProps) => {
     const { header } = typographyGuide;
     const {
         heading,
-        textStyle = { heading: header.heading, description: header.description },
+        textStyle = { heading: header.heading, description: { ...header.description, fontSize: 40 } },
+        customTextStyle,
         color,
         description,
         onBackClick,
@@ -35,7 +36,7 @@ const Header = (props: HeaderProps) => {
             {description ? (
                 <div style={{ paddingTop: '5px' }}>
                     <Typography
-                        {...textStyle.description}
+                        {...(customTextStyle ? customTextStyle : textStyle.description)}
                         style={{ maxWidth: '75%', opacity: FontOpacity.BODY_TEXT }}
                         color={fallbackColor}
                     >
