@@ -9,7 +9,7 @@ const Header = (props: HeaderProps) => {
     const { header } = typographyGuide;
     const {
         heading,
-        textStyle = { heading: header.heading, description: header.description },
+        textStyle = { heading: header.heading, description: { ...header.description, fontSize: 40 } },
         color,
         description,
         onBackClick,
